@@ -20,12 +20,17 @@ public class HumrahiApplication {
 	@Bean
     CommandLineRunner runner(UserServiceImpl userService) {
 		String str = new String("1111");
-        return args -> {
-            userService.create(
-            		new User(1L, 
-            				"8826612535", "Manoj","Behl", "Agent",
-            				new String( Base64.getEncoder().encode(str.getBytes())) ) 
-            		);
+		
+		User user  = new User(1L, 
+				"8826612535", "Manoj","Behl", "Agent",
+				new String( Base64.getEncoder().encode(str.getBytes())) );
+		
+		
+		user.setAadharNumber("AHJAHJAHA");
+		user.setCity("Gurgaon");
+		user.setGender("male");
+		return args -> {
+            userService.create(user);
         };
     }
 
