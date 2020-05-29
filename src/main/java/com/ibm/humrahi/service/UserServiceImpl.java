@@ -38,7 +38,7 @@ public class UserServiceImpl {
 	}
 
 	public Iterable<UserDto> getAllUsers(String role) {
-		Iterable<User> iterable= this.userRepository.findByRoleIgnoreCase(role)
+		Iterable<User> iterable= this.userRepository.findByRoleIgnoreCase(role);
 
 		List<User> userList = new ArrayList<User>();
 		iterable.forEach(e -> userList.add(e));
