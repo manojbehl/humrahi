@@ -7,7 +7,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import com.ibm.humrahi.entity.HelpType;
 import com.ibm.humrahi.entity.User;
+import com.ibm.humrahi.service.HelpServiceImpl;
 import com.ibm.humrahi.service.UserServiceImpl;
 
 @SpringBootApplication
@@ -18,7 +20,7 @@ public class HumrahiApplication {
 	}
 	
 	@Bean
-    CommandLineRunner runner(UserServiceImpl userService) {
+    CommandLineRunner runner(UserServiceImpl userService, HelpServiceImpl helpService) {
 		String str = new String("1111");
 		
 		User user  = new User(1L, 
@@ -31,6 +33,11 @@ public class HumrahiApplication {
 		user.setGender("male");
 		return args -> {
             userService.create(user);
+            helpService.createHelp(new HelpType("Food", "Food"));
+            helpService.createHelp(new HelpType("Transportation", "Transportation"));
+            helpService.createHelp(new HelpType("FootWear", "FootWear"));
+            helpService.createHelp(new HelpType("Other", "Other"));
+            
         };
     }
 
