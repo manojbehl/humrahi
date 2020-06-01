@@ -1,12 +1,20 @@
 package com.ibm.humrahi.entity;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.ibm.humrahi.dto.HelpTypeDto;
 
 @Entity
 @Table(name="USER")
@@ -58,6 +66,11 @@ public class User {
 	
 	@Column(name="email ")
 	private String email;
+	
+	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "user", cascade=CascadeType.ALL)
+	private Set<UserHelp> helpProvided;
+
 	
 	
 	public User(long id, String userName, String firstName, String lastName,String role, String password) {
@@ -196,6 +209,17 @@ public class User {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public Set<UserHelp> getHelpProvided() {
+		if(helpProvided == null) {
+			helpProvided = new HashSet<UserHelp>();
+		}
+		return helpProvided;
+	}
+
+	public void setHelpProvided(Set<UserHelp> helpProvided) {
+		this.helpProvided = helpProvided;
 	}
 
 }

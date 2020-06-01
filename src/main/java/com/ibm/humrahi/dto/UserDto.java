@@ -1,5 +1,9 @@
 package com.ibm.humrahi.dto;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
+
 public class UserDto {
 
 	
@@ -30,6 +34,8 @@ public class UserDto {
 	private String zip;
 	
 	private String email;
+	
+	private Set<HelpTypeDto> helpProvided;
 
 
 	public String getUserName() {
@@ -145,6 +151,17 @@ public class UserDto {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public Set<HelpTypeDto> getHelpProvided() {
+		if(helpProvided == null) {
+			helpProvided = new HashSet<HelpTypeDto>();
+		}
+		return helpProvided;
+	}
+
+	public void setHelpProvided(Set<HelpTypeDto> helpProvided) {
+		this.helpProvided = helpProvided;
 	}
 
 }
