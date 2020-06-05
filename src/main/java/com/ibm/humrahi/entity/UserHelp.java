@@ -21,8 +21,8 @@ public class UserHelp {
 
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "user_ID", nullable = false)
-	private User User;	
+	@JoinColumn(name = "user_id", nullable = false)
+	private User user;	
 	
 	@Column(name = "help_id")
 	private long helpId;
@@ -36,11 +36,11 @@ public class UserHelp {
 	}
 
 	public User getUser() {
-		return User;
+		return user;
 	}
 
 	public void setUser(User user) {
-		User = user;
+		this.user = user;
 	}
 
 	public long getHelpId() {
