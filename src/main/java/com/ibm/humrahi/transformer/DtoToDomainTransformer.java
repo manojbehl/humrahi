@@ -25,6 +25,7 @@ public class DtoToDomainTransformer {
 			
 		BeanUtils.copyProperties(userDto, user, "helpProvided");
 			
+		UserHelp userHelp = null;
 		
 		for (Iterator iterator = userDto.getHelpProvided().iterator(); iterator.hasNext();) {
 
@@ -32,11 +33,11 @@ public class DtoToDomainTransformer {
 
 			System.err.println("type.getHelp()" + type.getHelp());
 
-			UserHelp userHelp = new UserHelp();
+			userHelp = new UserHelp();
 
-			HelpType help = helpRepo.findByHelp(type.getHelp());
+			//HelpType help = helpRepo.findByHelp(type.getHelp());
 
-			userHelp.setHelpId(help.getId());
+			userHelp.setHelpId(type.getId());
 			userHelp.setUser(user);
 
 			user.getHelpProvided().add(userHelp);

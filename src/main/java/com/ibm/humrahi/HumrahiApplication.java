@@ -27,13 +27,14 @@ public class HumrahiApplication {
 	 * String(Base64.getEncoder().encode(str.getBytes())));
 	 * 
 	 * user.setAadharNumber("AHJAHJAHA"); user.setCity("Gurgaon");
-	 * user.setGender("male"); return args -> { userService.create(user);
-	 * helpService.createHelp(new HelpType("Food", "Food"));
+	 * user.setGender("male"); return args -> { // userService.create(user);
+	 * helpService.createHelp(new HelpType("Food", "Food & Grocery"));
 	 * helpService.createHelp(new HelpType("Transportation", "Transportation"));
-	 * helpService.createHelp(new HelpType("FootWear", "FootWear"));
-	 * helpService.createHelp(new HelpType("Other", "Other"));
+	 * helpService.createHelp(new HelpType("Jobs", "Jobs & Work"));
+	 * helpService.createHelp(new HelpType("Clothes", "Clothes & Footware"));
+	 * helpService.createHelp(new HelpType("Medicine",
+	 * "Facemask, Sanitizing Item & Medicine"));
 	 * 
 	 * }; }
 	 */
-
 }

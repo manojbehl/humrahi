@@ -18,6 +18,6 @@ public class InterceptorConfig extends WebMvcConfigurerAdapter{
 
 //		registry.addInterceptor(securityInterceptor).excludePathPatterns("/**");
 		registry.addInterceptor(securityInterceptor).addPathPatterns("/**").excludePathPatterns("/forgot/password**",
-				"/api/signup", "/resend/otp","/h2/login**", "/qrcode/**","/generateOTP/**", "/swagger**/**", "/swagger-ui.html", "/webjars/**", "/v2/api-docs", "/user/create");
+				"/api/signup","/api/helpType**", "/resend/otp","/h2/login**", "/qrcode/**","/generateOTP/**", "/swagger**/**", "/swagger-ui.html", "/webjars/**", "/v2/api-docs", "/user/create");
 	}
 }
