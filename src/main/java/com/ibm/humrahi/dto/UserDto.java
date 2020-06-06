@@ -35,6 +35,8 @@ public class UserDto {
 	
 	private String email;
 	
+	private String password;
+	
 	private Set<HelpTypeDto> helpProvided;
 
 
@@ -162,6 +164,14 @@ public class UserDto {
 
 	public void setHelpProvided(Set<HelpTypeDto> helpProvided) {
 		this.helpProvided = helpProvided;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 }
